@@ -1,6 +1,6 @@
 module.exports = {
   registerUser: (req, res) => {
-    res.send("New User Created");
+    res.render("index");
   },
 
   userLogin: (req, res) => {
