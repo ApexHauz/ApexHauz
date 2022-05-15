@@ -9,5 +9,8 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
   if (err) throw err;
-  console.log("Database connection established");
+  console.log("Database connection established\n ::::::::::::::::::::::::::::");
 });
+
+
+module.exports = connection;
