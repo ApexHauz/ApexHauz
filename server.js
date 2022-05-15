@@ -9,8 +9,10 @@ const app = express();
 require('express-async-errors')
 
 
-// API Response
-const { apiresponse } = require("./src/utils/apiresponse");
+// Errors
+const AppError = require("./src/errors/AppError");
+const errorHandler = require("./src/errors/error-handler");
+
 
 // CONNECTING THE DATABASE
 require("./src/config/db");
@@ -36,23 +38,11 @@ app.use('/api/v1/admin', require('./src/routes/admin')) // ADMIN Endpoint
 
 // 404 Error Handler
 app.all('*', (req, res) => {
-  // res.status(404).json({
-  //   status: "error",
-  //   message: "Page not found"
-  // })
-
-  apiresponse(404, "This page is not found", null, res)
-
+  throw new AppError(404, "This page is not found in this server");
 })
 
 // Global Error Handler
-app.use((err, req, res, next) => {
-  console.log(err.name)
-  res.status(err.status || 500).json({
-    status: "error",
-    message: err.message || "Internal Server Error",
-  })
-})
+app.use(errorHandler);
 
 
 const PORT = process.env.PORT || 5000;
