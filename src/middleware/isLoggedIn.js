@@ -1,4 +1,4 @@
-// Authentication process
+// Authentication middleware
 const jwt = require('jsonwebtoken')
 const AppError = require('./../errors/AppError')
 const connection = require('./../config/db')
@@ -28,7 +28,7 @@ const isLoggedIn = (req, res, next) => {
         user = result;
     })
 
-    // If everything is fine, then pass the user to req.user and we can move to the next middleware
+    // If everything is fine, then pass the user to req.user and move to the next middleware
     req.user = user;
     next()
 }
