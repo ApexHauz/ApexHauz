@@ -7,8 +7,6 @@ const userRoutes = require("./routes/userRoutes");
 const propertyRoutes = require("./routes/propertyRoutes");
 const PORT = 5000 || process.env.PORT;
 
-// CONNECTING THE DATABASE
-require("./config/db");
 
 app.use(cors());
 app.use(express.json());
