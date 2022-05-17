@@ -6,13 +6,11 @@ const express = require("express");
 const app = express();
 
 // Express async error handling
-require('express-async-errors')
-
+require("express-async-errors");
 
 // Errors
 const AppError = require("./src/errors/AppError");
 const errorHandler = require("./src/errors/error-handler");
-
 
 // CONNECTING THE DATABASE
 require("./src/config/db");
@@ -24,26 +22,29 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // SETUP EXPRESS BODY PARSER FOR JSON DATA
+
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-
-
+// CONFIGURING USER ROUTES
+app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/auth", userRoutes);
 // CONFIGURING ROUTES
 
-app.use('/api/v1/auth', require('./src/routes/auth')) // AUTH Endpoint
+app.use("/api/v1/auth", require("./src/routes/auth")); // AUTH Endpoint
 
-app.use('/api/v1/property', require('./src/routes/property')); // PROPERTY Endpoint
+app.use("/api/v1/property", require("./src/routes/property")); // PROPERTY Endpoint
 
-app.use('/api/v1/admin', require('./src/routes/admin')) // ADMIN Endpoint
+app.use("/api/v1/admin", require("./src/routes/admin")); // ADMIN Endpoint
 
 // 404 Error Handler
-app.all('*', (req, res) => {
+app.all("*", (req, res) => {
   throw new AppError(404, "This page is not found in this server");
-})
+});
 
 // Global Error Handler
 app.use(errorHandler);
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
