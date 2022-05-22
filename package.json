@@ -1,23 +1,21 @@
 {
-<<<<<<< HEAD
+
   "name": "apexhauz",
   "version": "1.0.0",
   "description": "",
-=======
+
   "name": "capstone-two-project",
   "version": "1.0.0",
   "description": "A NodeJS/ ExpressJS project with restful API.",
->>>>>>> ea48f7e8e684f11a05402e1bad02ee43743904ad
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-<<<<<<< HEAD
   "keywords": [],
   "author": "NodeJS track group 7",
   "license": "ISC",
-=======
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Agnes4Him/capstone-two-project.git"
@@ -36,20 +34,17 @@
     "url": "https://github.com/Agnes4Him/capstone-two-project/issues"
   },
   "homepage": "https://github.com/Agnes4Him/capstone-two-project#readme",
->>>>>>> ea48f7e8e684f11a05402e1bad02ee43743904ad
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.29.1",
     "cors": "^2.8.5",
-<<<<<<< HEAD
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "nodemailer": "^6.7.5",
-    "slugify": "^1.6.5"
-=======
+    "slugify": "^1.6.5",
     "datauri": "^4.1.0",
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
@@ -59,6 +54,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
->>>>>>> ea48f7e8e684f11a05402e1bad02ee43743904ad
   }
 }
