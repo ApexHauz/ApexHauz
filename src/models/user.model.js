@@ -77,15 +77,6 @@ class User {
         })
     }
     
-}
-
-class UserUpdate {
-    constructor(email, new_password, id) {
-        this.email = email
-        this.new_password = new_password
-        this.id = id
-    }
-
     static updateUser(email, new_password, result) {
         db.query('SELECT * FROM users WHERE email=?', [email], (err, res) => {
             if (err) {
@@ -131,7 +122,7 @@ class UserUpdate {
             }
         })
     }
+    
 }
 
-
-module.exports = {User, UserUpdate};
+module.exports = User;
